@@ -30,8 +30,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria save(Categoria autor) {
-        return categoriaRepository.save(autor);
+    public Categoria save(Categoria categoria) {
+        return categoriaRepository.save(categoria);
     }
 
     @Override

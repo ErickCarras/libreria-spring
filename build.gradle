@@ -3,11 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.5.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'jacoco'
-<<<<<<< HEAD
-	id 'io.qameta.allure-report' version '2.11.2'
-=======
 	id 'io.qameta.allure' version '2.11.2'
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
 }
 
 group = 'com.distribuida'
@@ -19,55 +15,78 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-<<<<<<< HEAD
-	all {
-		exclude group: 'org.aspectj', module: 'aspectjweaver'
-		exclude group: 'org.springframework', module: 'spring-aspects'
-	}
-=======
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
-}
-
 repositories {
 	mavenCentral()
+	// IMPORTANTE: Oracle UCP NO está en Maven Central, para usarlo necesitas este repo y credenciales.
+	// Si quieres usar UCP, descomenta y configura usuario y contraseña Oracle Maven Repository:
+	/*
+	maven {
+		url = uri("https://maven.oracle.com")
+		credentials {
+			username = 'tu-usuario-oracle'
+			password = 'tu-password-oracle'
+		}
+	}
+	*/
+}
+
+configurations {
+
+	compileOnly {
+		extendsFrom annotationProcessor
+		exclude group: 'org.aspectj'
+	}
+	allureAspectjWeaverAgent {
+		canBeResolved = true
+		canBeConsumed = false
+	}
 }
 
 dependencies {
+	// SPRING
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-<<<<<<< HEAD
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-=======
-	//implementation 'org.springframework.boot:spring-boot-starter-web'
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+
+	// DATA SOURCE POOL
+	implementation 'com.zaxxer:HikariCP:5.0.1' // Usa versión fija y reciente
+
+
+	// LOMBOK
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// DEV TOOLS
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// DRIVER MYSQL
+	runtimeOnly 'com.mysql:mysql-connector-j:8.1.0'
+
+	// TESTING
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-<<<<<<< HEAD
-	//testImplementation 'io.qameta.allure:allure-junit5:2.24.0'
-
 	testImplementation 'org.mockito:mockito-core:5.12.0'
 	testImplementation 'org.mockito:mockito-junit-jupiter:5.12.0'
-
-=======
 	testImplementation 'io.qameta.allure:allure-junit5:2.24.0'
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+
+	// ASPECTJ para Allure
+	allureAspectjWeaverAgent 'org.aspectj:aspectjweaver:1.9.19'
+}
+
+task copyAllureAspectjWeaverAgent(type: Copy) {
+	from configurations.allureAspectjWeaverAgent
+	into "$buildDir/allure"
 }
 
 tasks.named('test') {
+	dependsOn copyAllureAspectjWeaverAgent
 	useJUnitPlatform()
-<<<<<<< HEAD
-	systemProperty 'spring.datasource.type', 'com.zaxxer.hikari.HikariDataSource'
-=======
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+	jvmArgs = [
+			"-javaagent:$buildDir/allure/aspectjweaver-1.9.19.jar",
+			"--add-opens=java.base/java.lang=ALL-UNNAMED"
+	]
 }
+
 jacocoTestReport {
 	dependsOn test
 	reports {
@@ -76,7 +95,3 @@ jacocoTestReport {
 		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
 	}
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c

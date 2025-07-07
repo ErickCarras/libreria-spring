@@ -2,10 +2,8 @@ package com.distribuida.service;
 
 import com.distribuida.dao.CategoriaRepository;
 import com.distribuida.model.Categoria;
-<<<<<<< HEAD
-=======
 import com.distribuida.service.CategoriaService;
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

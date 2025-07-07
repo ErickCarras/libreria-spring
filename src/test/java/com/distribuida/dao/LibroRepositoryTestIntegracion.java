@@ -47,9 +47,9 @@ public class LibroRepositoryTestIntegracion {
 
     @Test
     public void findOne(){
-        Optional<Libro> libro = libroRepository.findById(72);
+        Optional<Libro> libro = libroRepository.findById(82);
         assertNotNull(libro);
-        assertEquals("nuevos dictadores", libro.orElse(null).getTitulo());
+        assertEquals("Cien años de soledad", libro.orElse(null).getTitulo());
         System.out.println(libro.toString());
 
     }
@@ -87,7 +87,7 @@ public class LibroRepositoryTestIntegracion {
 
     @Test
     public void update(){
-        Optional<Libro> libroExistente = libroRepository.findById(72);
+        Optional<Libro> libroExistente = libroRepository.findById(81);
         Optional<Categoria> categoriaExistente = categoriaRepository.findById(2);
         Optional<Autor> autorExistente = autorRepository.findById(2);
 
@@ -121,10 +121,10 @@ public class LibroRepositoryTestIntegracion {
 
     @Test
     public void delete(){
-        if (libroRepository.existsById(72)){
-            libroRepository.deleteById(72);
+        if (libroRepository.existsById(79)){
+            libroRepository.deleteById(79);
         }
-        assertFalse(libroRepository.existsById(71));
+        assertFalse(libroRepository.existsById(79));
     }
 
 }

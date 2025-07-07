@@ -54,21 +54,22 @@ public class AutorRepositoryTestIntegracion {
     @Test
     public void update(){
         Optional<Autor> autorExistente = autorRepository.findById(50);
+        assertTrue(autorExistente.isPresent());
 
-        assertNotNull(autorExistente);
+        Autor autor = autorExistente.get();
+        autor.setNombre("Erika22");
+        autor.setApellido("Esperanza22");
+        autor.setPais("Brasil22");
+        autor.setDireccion("portugues");
+        autor.setTelefono("0987234322");
+        autor.setCorreo("jtaipe22@correo.com");
 
-        autorExistente.orElse(null).setNombre("Erika22");
-        autorExistente.orElse(null).setApellido("Eperanza22");
-        autorExistente.orElse(null).setPais("Brasil22");
-        autorExistente.orElse(null).setDireccion("portugues");
-        autorExistente.orElse(null).setTelefono("0987234322");
-        autorExistente.orElse(null).setCorreo("jtaipe22@correo.com");
-
-        Autor autorActualizado = autorRepository.save(autorExistente.orElse(null));
+        Autor autorActualizado = autorRepository.save(autor);
 
         assertNotNull(autorActualizado);
         assertEquals("Erika22", autorActualizado.getNombre());
     }
+
 
     @Test
     public void delete(){

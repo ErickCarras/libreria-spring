@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-rootProject.name = 'libreriaspring1'
-=======
+
+//rootProject.name = 'libreriaspring1'
+
 rootProject.name = 'libreria-spring'
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+

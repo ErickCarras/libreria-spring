@@ -43,7 +43,7 @@ public class FacturaRepositoryTestIntegracion {
     public void findOne(){
         Optional<Factura> factura = facturaRepository.findById(82);
         assertNotNull(factura);
-        assertEquals("FAC-0061", factura.orElse(null).getNumFactura());
+        assertEquals("FAC00099", factura.orElse(null).getNumFactura());
         System.out.println(factura.toString());
 
     }
@@ -69,7 +69,7 @@ public class FacturaRepositoryTestIntegracion {
 
     @Test
     public void update(){
-        Optional<Factura> facturaExistente = facturaRepository.findById(86);
+        Optional<Factura> facturaExistente = facturaRepository.findById(82);
         Optional<Cliente> clienteExistente = clienteRepository.findById(2);
 
         assertNotNull(facturaExistente);

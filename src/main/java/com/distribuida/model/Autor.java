@@ -1,6 +1,5 @@
 package com.distribuida.model;
 
-<<<<<<< HEAD
 import jakarta.persistence.*;
 
 @Entity
@@ -23,17 +22,8 @@ public class Autor {
     @Column(name = "telefono")
     private String telefono;
     @Column(name = "correo")
-=======
-public class Autor {
-
-    private int idAutor;
-    private String nombre;
-    private String apellido;
-    private String pais;
-    private String direccion;
-    private String telefono;
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     private String correo;
+
 
     public Autor () {}
 

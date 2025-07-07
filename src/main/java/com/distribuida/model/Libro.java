@@ -1,97 +1,72 @@
 package com.distribuida.model;
 
-<<<<<<< HEAD
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-
 
 @Entity
 @Table(name = "libro")
-
 public class Libro {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_libro")
     private int idLibro;
+
     @Column(name = "titulo")
     private String titulo;
+
     @Column(name = "editorial")
     private String editorial;
+
     @Column(name = "num_paginas")
     private int numPaginas;
+
     @Column(name = "edicion")
     private String edicion;
+
     @Column(name = "idioma")
     private String idioma;
+
     @Column(name = "fecha_publicacion")
     private LocalDate fechaPublicacion;
+
     @Column(name = "descripcion")
     private String descripcion;
+
     @Column(name = "tipo_pasta")
     private String tipoPasta;
+
     @Column(name = "ISBN")
     private String isbn;
+
     @Column(name = "num_ejemplares")
     private int numEjemplares;
+
     @Column(name = "portada")
     private String portada;
+
     @Column(name = "presentacion")
     private String presentacion;
+
     @Column(name = "precio")
     private double precio;
 
-    // Relación con autor (esta es la parte que causaba el error)
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 
-
-    // Relación con autor (esta es la parte que causaba el error)
     @ManyToOne
     @JoinColumn(name = "id_autor")
     private Autor autor;
 
-
-=======
-import java.time.LocalDate;
-
-public class Libro {
-
-
-
-    private int idLibro;
-    private String titulo;
-    private String editorial;
-    private int numPaginas;
-    private String edicion;
-    private String idioma;
-    private LocalDate fechaPublicacion;
-    private String descripcion;
-    private String tipoPasta;
-    private String isbn;
-    private int numEjemplares;
-    private String portada;
-    private String presentacion;
-    private double precio;
-    private Autor autor;
-    private Categoria categoria;
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
-
     // Constructor vacío
-    public Libro() {
-    }
+    public Libro() {}
 
     // Constructor con parámetros
     public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion,
                  String idioma, LocalDate fechaPublicacion, String descripcion, String tipoPasta,
-<<<<<<< HEAD
-                 String isbn, int numEjemplares, String portada, String presentacion, double precio, Categoria categoria, Autor autor) {
-=======
-                 String isbn, int numEjemplares, String portada, String presentacion, double precio) {
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+                 String isbn, int numEjemplares, String portada, String presentacion, double precio,
+                 Categoria categoria, Autor autor) {
         this.idLibro = idLibro;
         this.titulo = titulo;
         this.editorial = editorial;
@@ -108,10 +83,9 @@ public class Libro {
         this.precio = precio;
         this.categoria = categoria;
         this.autor = autor;
-
     }
 
-    // Getters y setters
+    // Getters y Setters
     public int getIdLibro() {
         return idLibro;
     }
@@ -224,27 +198,20 @@ public class Libro {
         this.precio = precio;
     }
 
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-<<<<<<< HEAD
-   }
-
-    public Autor getAutor() {
-       return autor;
-=======
-    }
-
-    public Autor getAutor() {
-        return autor;
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+    public Categoria getCategoria() {
+        return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
 
     @Override
@@ -256,7 +223,7 @@ public class Libro {
                 ", numPaginas=" + numPaginas +
                 ", edicion='" + edicion + '\'' +
                 ", idioma='" + idioma + '\'' +
-                ", fechaPublicacion='" + fechaPublicacion + '\'' +
+                ", fechaPublicacion=" + fechaPublicacion +
                 ", descripcion='" + descripcion + '\'' +
                 ", tipoPasta='" + tipoPasta + '\'' +
                 ", isbn='" + isbn + '\'' +

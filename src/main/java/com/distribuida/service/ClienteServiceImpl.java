@@ -1,9 +1,9 @@
 package com.distribuida.service;
 
-<<<<<<< HEAD
-=======
+
+
 import ch.qos.logback.core.net.server.Client;
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+
 import com.distribuida.dao.ClienteRepository;
 import com.distribuida.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +35,8 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public Cliente save(Cliente cliente) {
-<<<<<<< HEAD
 
-=======
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+
         return clienteRepository.save(cliente);
     }
 

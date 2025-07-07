@@ -1,8 +1,10 @@
 package com.distribuida.model;
 
-<<<<<<< HEAD
 import jakarta.persistence.*;
 
+import java.util.Date;
+
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,39 +15,31 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_factura")
     private int idFactura;
+
     @Column(name = "num_factura")
     private String numFactura;
+
     @Column(name = "fecha")
     private Date fecha;
+
     @Column(name = "total_neto")
     private Double totalNeto;
+
     @Column(name = "iva")
     private Double iva;
+
     @Column(name = "total")
     private Double total;
 
-    // patron de inyección de independencias
+    // Asociación con Cliente (supongo que la columna es "id_cliente")
     @ManyToOne
-    @JoinColumn(name = "factura")
-=======
-import java.util.Date;
-
-public class Factura {
-
-    private int idFactura;
-    private String numFactura;
-    private Date fecha;
-    private Double totalNeto;
-    private Double iva;
-    private Double total;
-
-    // patron de inyección de independencias
->>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    public Factura() {
-    }
+    // Constructor vacío
+    public Factura() {}
 
+    // Constructor con parámetros
     public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total, Cliente cliente) {
         this.idFactura = idFactura;
         this.numFactura = numFactura;
@@ -55,6 +49,8 @@ public class Factura {
         this.total = total;
         this.cliente = cliente;
     }
+
+    // Getters y Setters
 
     public int getIdFactura() {
         return idFactura;

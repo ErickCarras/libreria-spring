@@ -57,28 +57,28 @@ public class FacturaDetalleRepositoryTestIntegracion {
 
     @Test
     public void save(){
-        Optional<Factura> factura = facturaRepository.findById(1);
+        Optional<Factura> factura = facturaRepository.findById(0);
         Optional<Libro> libro = libroRepository.findById(1);
-        assertTrue(factura.isPresent());
+        assertFalse(factura.isPresent());
 
         FacturaDetalle facturaDetalle = new FacturaDetalle();
-        facturaDetalle.setIdFacturaDetalle(0);
+        facturaDetalle.setIdFacturaDetalle(1);
         facturaDetalle.setCantidad(5);
-        facturaDetalle.setSubtotal(10.4);
+        facturaDetalle.setSubtotal(11.4);
 
-        facturaDetalle.setAutor(factura.orElse(null));
+        facturaDetalle.setFactura(factura.orElse(null));
         facturaDetalle.setLibro(libro.orElse(null));
 
         FacturaDetalle facturaDetalleGuardado = facturaDetalleRepository.save(facturaDetalle);
         assertNotNull(facturaDetalleGuardado);
         assertEquals(5, facturaDetalleGuardado.getCantidad());
-        assertEquals(10.4, facturaDetalleGuardado.getSubtotal());
+        assertEquals(11.4, facturaDetalleGuardado.getSubtotal());
     }
 
 
     @Test
     public void update(){
-        Optional<FacturaDetalle> facturaDetalleExistente = facturaDetalleRepository.findById(210);
+        Optional<FacturaDetalle> facturaDetalleExistente = facturaDetalleRepository.findById(204);
         Optional<Factura> facturaExistente = facturaRepository.findById(2);
         Optional<Libro> libroExistente = libroRepository.findById(2);
 
@@ -91,7 +91,7 @@ public class FacturaDetalleRepositoryTestIntegracion {
         facturaDetalleExistente.orElse(null).setCantidad(6);
         facturaDetalleExistente.orElse(null).setSubtotal(13.99);
 
-        facturaDetalleExistente.orElse(null).setAutor(facturaExistente.orElse(null));
+        facturaDetalleExistente.orElse(null).setFactura(facturaExistente.orElse(null));
         facturaDetalleExistente.orElse(null).setLibro(libroExistente.orElse(null));
 
         FacturaDetalle facturaDetalleActualizado = facturaDetalleRepository.save(facturaDetalle);

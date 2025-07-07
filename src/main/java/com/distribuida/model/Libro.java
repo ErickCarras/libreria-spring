@@ -1,5 +1,6 @@
 package com.distribuida.model;
 
+<<<<<<< HEAD
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -54,6 +55,30 @@ public class Libro {
     private Autor autor;
 
 
+=======
+import java.time.LocalDate;
+
+public class Libro {
+
+
+
+    private int idLibro;
+    private String titulo;
+    private String editorial;
+    private int numPaginas;
+    private String edicion;
+    private String idioma;
+    private LocalDate fechaPublicacion;
+    private String descripcion;
+    private String tipoPasta;
+    private String isbn;
+    private int numEjemplares;
+    private String portada;
+    private String presentacion;
+    private double precio;
+    private Autor autor;
+    private Categoria categoria;
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
 
     // Constructor vacío
     public Libro() {
@@ -62,7 +87,11 @@ public class Libro {
     // Constructor con parámetros
     public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion,
                  String idioma, LocalDate fechaPublicacion, String descripcion, String tipoPasta,
+<<<<<<< HEAD
                  String isbn, int numEjemplares, String portada, String presentacion, double precio, Categoria categoria, Autor autor) {
+=======
+                 String isbn, int numEjemplares, String portada, String presentacion, double precio) {
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
         this.idLibro = idLibro;
         this.titulo = titulo;
         this.editorial = editorial;
@@ -197,10 +226,17 @@ public class Libro {
 
     public void setAutor(Autor autor) {
         this.autor = autor;
+<<<<<<< HEAD
    }
 
     public Autor getAutor() {
        return autor;
+=======
+    }
+
+    public Autor getAutor() {
+        return autor;
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     }
 
     public void setCategoria(Categoria categoria) {

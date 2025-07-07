@@ -1,6 +1,9 @@
 package com.distribuida.model;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +15,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private int idCliente;
+<<<<<<< HEAD
     @Column(name = "cedula")
     private String cedula;
     @Column(name = "nombre")
@@ -23,6 +27,19 @@ public class Cliente {
     @Column(name = "telefono")
     private String telefono;
     @Column(name = "correo")
+=======
+    @Column(name = "id_cedula")
+    private String cedula;
+    @Column(name = "id_nombre")
+    private String nombre;
+    @Column(name = "id_apellido")
+    private String apellido;
+    @Column(name = "id_direccion")
+    private String direccion;
+    @Column(name = "id_telefono")
+    private String telefono;
+    @Column(name = "id_correo")
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     private String correo;
 
     // Constructor vacio

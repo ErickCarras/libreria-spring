@@ -1,5 +1,6 @@
 package com.distribuida.model;
 
+<<<<<<< HEAD
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -26,6 +27,20 @@ public class Factura {
     // patron de inyección de independencias
     @ManyToOne
     @JoinColumn(name = "factura")
+=======
+import java.util.Date;
+
+public class Factura {
+
+    private int idFactura;
+    private String numFactura;
+    private Date fecha;
+    private Double totalNeto;
+    private Double iva;
+    private Double total;
+
+    // patron de inyección de independencias
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     private Cliente cliente;
 
     public Factura() {

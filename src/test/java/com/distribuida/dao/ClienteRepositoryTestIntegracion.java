@@ -10,9 +10,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+=======
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -27,12 +30,16 @@ public class ClienteRepositoryTestIntegracion {
      @Test
     public void findAll(){
          List<Cliente> clientes = clienteRepository.findAll();
+<<<<<<< HEAD
          assertNotNull(clientes);
          assertTrue(clientes.size()>0);
+=======
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
          for (Cliente item: clientes){
              System.out.println(item.toString());
          }
      }
+<<<<<<< HEAD
      @Test
     public void findOne(){
          Optional<Cliente> cliente = clienteRepository.findById(1);
@@ -72,4 +79,6 @@ public class ClienteRepositoryTestIntegracion {
          }
          assertFalse(clienteRepository.existsById(40), "El id = 40 deveria haberse eliminado");
     }
+=======
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
 }

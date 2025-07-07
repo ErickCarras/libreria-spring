@@ -1,5 +1,6 @@
 package com.distribuida.model;
 
+<<<<<<< HEAD
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -36,6 +37,21 @@ public class FacturaDetalle {
     }
 
     public FacturaDetalle(int idFacturaDetalle, int cantidad, double subtotal, Libro libro, Factura factura) {
+=======
+public class FacturaDetalle {
+
+
+    private int idFacturaDetalle;
+    private int cantidad;
+    private double subtotal;
+
+    private Factura factura; //private int idFactura
+    private Libro libro; // private int idLibro
+
+    public FacturaDetalle() {}
+
+    public FacturaDetalle(int idFacturaDetalle, int cantidad, double subtotal) {
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
         this.idFacturaDetalle = idFacturaDetalle;
         this.cantidad = cantidad;
         this.subtotal = subtotal;
@@ -67,26 +83,46 @@ public class FacturaDetalle {
         this.subtotal = subtotal;
     }
 
+<<<<<<< HEAD
     public void setAutor(Factura factura) {
         this.factura = factura;
     }
 
+=======
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     public Factura getFactura() {
         return factura;
     }
 
+<<<<<<< HEAD
     public void setLibro(Libro libro) {
         this.libro = libro;
+=======
+    public void setFactura(Factura factura) {
+        this.factura = factura;
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     }
 
     public Libro getLibro() {
         return libro;
     }
 
+<<<<<<< HEAD
+=======
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
     @Override
     public String toString() {
         return "FacturaDetalle [idFacturaDetalle=" + idFacturaDetalle + ", cantidad=" + cantidad + ", subtotal="
                 + subtotal + ", factura=" + factura + ", libro=" + libro + "]";
+<<<<<<< HEAD
          }
 
      }
+=======
+    }
+}
+>>>>>>> e81cf4bca0f466b65687c118f540721cf99b4f8c
